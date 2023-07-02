@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-UA-compatible" content="IE=edge">
+  <meta name ="viewport" content="width=device-width,initial-scale=1.0">
+  <title>portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  </head>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+        font-family: 'Times New Roman', Times, serif;
+        box-sizing: border-box;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        background-color: black;
+        color: azure;
+    }
+    #header{
+        width:100%;
+        height:100vh;
+        background-size: cover;
+        background-position: center;
+        color:aqua;
+    }
+    h1{
+        font-size: 50px;
+        font-style: italic;
+    }
+    .container{
+        padding:10px 10%;
+
+    }
+    nav{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    nav ul li{
+        display:inline-block;
+        list-style: none;
+        margin:10px 20px;
+
+    }
+    nav ul li a{
+        color: aliceblue;
+        text-decoration: none;
+        font-size: 20px;
+        font-style: italic;
+        position:relative;
+    }
+    nav ul li a::after{
+        content:'';
+        width:0;
+        height:3px;
+        background: aqua;
+        position:absolute;
+        left:0;
+        bottom:-6px;
+        transition:0.5s;
+    }
+    nav ul li a:hover::after{
+        width:100%;
+    }
+    .header-text{
+        margin-top: 20%;
+    }
+    .header-text h2{
+        font-size: 40px;
+        font-style: italic;
+    }
+     .header-text h3{
+        color: aliceblue;
+        font-style: oblique;
+        font-size: 15px;
+    }
+    .about{
+        padding: 40px;
+    }
+    h4{
+        font-size: 40px;
+        font-style: italic;
+        color:aqua;
+    }
+    p{
+        font-size: 20px;
+        font-style: italic;
+        color: aliceblue;
+    }
+    .tab-titles{
+        display:flex;
+        margin:20px 0 40px;
+    }
+    .tab-links{
+        margin-right: 50px;
+        font-size: 20px;
+        font-weight: 500;
+        cursor:pointer;
+        position: relative;
+        font-style: italic;
+    }
+    .tab-links::after{
+        content:'';
+        width:0;
+        height:3px;
+        background:aqua;
+        position: absolute;
+        left:0;
+        bottom:-6px;
+        transition:0.5s;
+    }
+    .tab-links.active-link::after{
+         width:50%;
+    }
+    .tab-contents ul li{
+          list-style: none;
+          margin: 10px 0;
+          font-style: italic;
+    }
+    .tab-contents ul li span{
+        color: aqua;
+        font-style: 20px;
+    }
+    .tab-contents{
+        display:none;
+
+
+    }
+    .tab-contents.active-tab{
+        display:block;
+    }
+    #services{
+        padding:30px 0;
+    }
+    .services-list{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+        grid-gap:40px;
+        margin-top: 50px;
+
+    }
+    h5{
+        font-size: 30px;
+        font-style: italic;
+    }
+    .services-list div{
+        background: grey;
+        padding:40px;
+        font-size: 13px;
+        font-weight: 300;
+        border-right: 10px;
+        transition: background 0.5s,transform 0.5s;
+    }
+    .services-list div:hover{
+              background:aqua;
+              transform:translateY(-10px);
+    }
+    .btn{
+  border: none;
+  background-color: inherit;
+  padding: 14px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn:hover{
+  background-color: black;
+}
+.code{
+  color: white;
+  font-style: italic;
+  background-color:grey;
+}
+#portfolio{
+        padding:30px 0;
+    }
+    .project{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+        grid-gap:40px;
+        margin-top: 50px;
+
+    }
+    .project div{
+        background: grey;
+        padding:40px;
+        font-size: 13px;
+        font-weight: 300;
+        border-right: 10px;
+        transition: background 0.5s,transform 0.5s;
+    }
+    .project div:hover{
+              background:aqua;
+              transform:translateY(-10px);
+    }
+    .btn.btn2{
+        display:inline-block;
+        background: aqua;
+    }
+    .btn.btn2:hover{
+        background:grey;
+        transform:translateY(-10px);
+    }
+    .contact-right{
+        flex-basis: 60%;
+    }
+    .contact-right form{
+        width:100%;
+    }
+    form input,form textarea{
+        width:100%;
+        border:0;
+        outline:none;
+        background:grey;
+        padding:15px;
+        margin:15px 0;
+        color:#fff;
+        font-size: 18px;
+        border-radius:6px;
+    }
+    #contact .form-control::placeholder {
+    color: white;
+}
+  
+    form .btn2{
+        padding:14px 60px;
+        font-size: 18px;
+        margin-top: 20px;
+        cursor:pointer;
+    }
+  </style>
+  <body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <h1>My Portfolio</h1>
+                <ul>
+                <li><a href="#header">home</a></li>
+                  <li><a href="#about">about me</a></li>
+                  <li><a href="#services">skills</a></li>
+                  <li><a href="#portfolio">portfolio</a></li>
+                  <li><a href="#contact">contact</a></li>
+              </ul>
+
+            </nav>
+            <div class="header-text">
+                <h2><center>Hi,i'am <span class="text-color" style="color:whitesmoke"> Saranya</span><br> 
+                    From India</center></h2>
+                    <h3><center>i'm web developer<br>i inverst time in expanding my skill set <br>and staying abreast of industrytrends </center></h3>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="row">  
+           <div>     
+            <h4>ABOUT ME</h4>
+        <p>Hi i am saranya,i acquired some skills on html,css,javscript,which lead me my intrest towards web development.</p>
+        <p>i have done some bootcamp projects in web development provided by iandt labs which help me in expanding my skills</p>
+        <p>i have done my online intenship training in web development,in a specific company named intrainz </p>
+        <p>due to my intrest in web development, i am committed to continuous learning and growth. </p>
+        <p>i love making  web sites with creative web designs </p>
+        </div>
+        <div class="tab-titles">
+            <p class="tab-links active-link " onclick="opentab('education')" >education</p>
+            <p class="tab-links active-link" onclick="opentab('experience')">experience</p>
+            </div>
+            <div class="tab-contents active-tab" id="education" >
+                <ul>
+                    <li><span >schooling</span><br>ravindra bharathi</li>
+                    <li><span>college</span><br>narayana</li>
+                    <li><span>btech</span><br> andhra university</li>
+                </ul>
+            </div>
+        <div class="tab-contents " id="experience">
+            <ul>
+                <li><span >current</span><br>FSD bootcamp</li>
+                <li><span>2022-2023</span><br> online intenship training in intrainz on web development</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="services">
+        <div class="container">
+            <h4> MY SKILLS</h4>
+            <div class="services-list">
+                <div>
+                    <h5>HTML</h5>
+                    <P>helpful in creating the structure of webpage</P>
+                </div>
+                <div>
+                    <h5>CSS</h5>
+                    <p>decides the look of the web page </p>
+                </div>
+                <div>
+                    <h5>JAVA SCRIPT</h5>
+                    <p>create dynamically updating content, control multimedia, animate images, and pretty much everything else.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div id="portfolio">
+            <div class="container">
+              <h4>PORTFOLIO</h4>
+              <div class="project">
+                <div>
+                  <h5>Freind Project</h5>
+                  <p>creating a webpage about our friends</p>
+                  <a href="https://github.com/adapureddisaranya/friend.git" target="_blank" class="btn code">Code</a>
+                </div>
+                <div>
+                    <h5>e-commerce</h5>
+                    <p>creating a e-commerce webpage</p>
+                    <a href="https://github.com/adapureddisaranya/e-commerce.git" target="_blank" class="btn code">Code</a>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <h4>CONTACT</h4>
+                <div class="contact-right">
+                    <form>
+                    <input type="text" class="form-control" placeholder="your Name" required>
+                    <input type="email" class="form-control" placeholder="your email" required>
+                    <textarea name="Message" rows="6" class="form-control" placeholder="your message"></textarea>
+                    <button type="submit" class="btn btn2">submit</button> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
+     <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+                 for(tablink of tablinks){
+                       tablink.classList.remove("active-link");
+
+                 }
+                 for(tabcontent of tabcontents){
+                       tabcontent.classList.remove("active-tab");
+                       
+                 }
+                 event.currentTarget.classList.add("active-link");
+                 document.getElementById(tabname).classList.add("active-tab");
+                 
+                } 
+    </script>
+  </body>
+  </html>
